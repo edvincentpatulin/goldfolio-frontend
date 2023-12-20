@@ -57,9 +57,12 @@
                 </a>
               </div>
             </div>
+
             <div class="col-lg-7">
               <div class="p-4">
                 <div class="justify-content-center text-center mt-0">
+                  <div class="alert alert-success d-none" role="alert"></div>
+                  <div class="alert alert-danger d-none" role="alert"></div>
                   <img
                     src="\assets\logo.jpg"
                     width="30"
@@ -70,7 +73,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form class="user form_signup">
+                <form class="user form_signup" id="form_signup">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
@@ -94,30 +97,27 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <div class="col-sm-8 mb-3 mb-sm-0">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
                       <input
                         type="text"
                         class="form-control form-control-user"
                         id="studentid"
-                        name="studentid"
+                        name="student_id"
                         placeholder="Student ID"
                         required
                       />
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
                       <input
                         type="text"
                         class="form-control form-control-user"
                         id="yearlevel"
-                        name="yearlevel"
+                        name="year_level"
                         placeholder="Year Level eg. 1"
                         required
                       />
                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="col-sm-4">
                       <input
                         type="text"
                         class="form-control form-control-user"
@@ -127,7 +127,20 @@
                         required
                       />
                     </div>
-                    <div class="col-sm-8">
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="role"
+                        name="role"
+                        placeholder="Role"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-6">
                       <input
                         type="text"
                         class="form-control form-control-user"
@@ -163,8 +176,8 @@
                       <input
                         type="password"
                         class="form-control form-control-user"
-                        id="password_confimation"
-                        name="password_confimation"
+                        id="password_confirmation"
+                        name="password_confirmation"
                         placeholder="Confirm Password"
                         required
                       />
@@ -172,7 +185,7 @@
                   </div>
                   <button
                     href="dashboard.html"
-                    class="btn btn-primary btn-user btn-block"
+                    class="btn btn-primary btn-user btn-block d-flex align-items-center justify-content-center"
                     type="submit"
                   >
                     Register Account

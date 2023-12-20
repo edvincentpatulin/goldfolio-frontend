@@ -1,4 +1,8 @@
-import { url, successNotification, errorNotification } from "../utils/utils";
+import {
+  backendUrl,
+  successNotification,
+  errorNotification,
+} from "../utils/utils.js";
 
 //Form Signup
 const form_signup = document.getElementById("form_signup");
@@ -9,15 +13,12 @@ form_signup.onsubmit = async (e) => {
   document.querySelector("#form_signup button").disabled = true;
   document.querySelector(
     "#form_signup button"
-  ).innerHTML = `<div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>`;
+  ).innerHTML = `<div class="spinner-border mr-2" role="status"></div>
+<span>Loading...</span>`;
 
   const formData = new FormData(form_signup);
 
-  const response = await fetch("api/profile", {
+  const response = await fetch(backendUrl + "/api/profile", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -27,10 +28,6 @@ form_signup.onsubmit = async (e) => {
 
   if (response.ok) {
     const json = await response.json();
-    console.log(json);
-
-    document.querySelector(".alert-success").classList.remove("d-none");
-    document.querySelector(".alert-success").classList.add("d-block");
 
     form_signup.reset();
 
