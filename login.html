@@ -78,7 +78,7 @@
                       <h1 class="h6 text-gray-800 mr-2"><b>Login as:</b></h1>
                       <div class="dropdown mb-2 transparent-dropdown">
                         <button
-                          class="btn dropdown-toggle rounded-pill text-gray-900"
+                          class="btn dropdown-toggle rounded-pill text-gray-800"
                           type="button"
                           id="dropdownMenuButton"
                           data-toggle="dropdown"
@@ -87,23 +87,25 @@
                         >
                           Role
                         </button>
-                        <div
+                        <ul
                           class="dropdown-menu animated--fade-in"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <a
-                            class="dropdown-item role-item"
-                            href="#"
-                            data-role="Author"
-                            >Author</a
-                          >
-                          <a
-                            class="dropdown-item role-item"
-                            href="#"
-                            data-role="Editor"
-                            >Editor</a
-                          >
-                        </div>
+                          <li>
+                            <a
+                              class="dropdown-item role-item"
+                              data-role="Author"
+                              >Author</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item role-item"
+                              data-role="Editor"
+                              >Editor</a
+                            >
+                          </li>
+                        </ul>
                       </div>
                     </div>
 
@@ -167,9 +169,7 @@
                       >
                     </div>
                     <div class="text-center">
-                      <a class="small" href="register.html"
-                        >Create an Account!</a
-                      >
+                      <a class="small" href="signup.html">Create an Account!</a>
                     </div>
                   </div>
                 </div>

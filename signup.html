@@ -25,6 +25,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <script src="js/auth/signup.js" type="module"></script>
   </head>
 
   <style>
@@ -69,48 +70,71 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form class="user">
+                <form class="user form_signup">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <input
                         type="text"
                         class="form-control form-control-user"
-                        id="exampleFirstName"
+                        id="firstname"
+                        name="firstname"
                         placeholder="First Name"
+                        required
                       />
                     </div>
                     <div class="col-sm-6">
                       <input
                         type="text"
                         class="form-control form-control-user"
-                        id="exampleLastName"
+                        id="lastname"
+                        name="lastname"
                         placeholder="Last Name"
+                        required
                       />
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="studentid"
-                      class="form-control form-control-user"
-                      id="exampleStudentID"
-                      placeholder="Student ID"
-                    />
                   </div>
                   <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="col-sm-8 mb-3 mb-sm-0">
                       <input
                         type="text"
                         class="form-control form-control-user"
-                        id="exampleYearLevel"
-                        placeholder="Year Level eg. 1st Year"
+                        id="studentid"
+                        name="studentid"
+                        placeholder="Student ID"
+                        required
                       />
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <input
                         type="text"
                         class="form-control form-control-user"
-                        id="exampleCourse"
+                        id="yearlevel"
+                        name="yearlevel"
+                        placeholder="Year Level eg. 1"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="course"
+                        name="course"
                         placeholder="Course eg. BSCE"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-8">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="position"
+                        name="position"
+                        placeholder="Position"
+                        required
                       />
                     </div>
                   </div>
@@ -118,8 +142,10 @@
                     <input
                       type="email"
                       class="form-control form-control-user"
-                      id="exampleInputEmail"
+                      id="email"
+                      name="email"
                       placeholder="Email"
+                      required
                     />
                   </div>
                   <div class="form-group row">
@@ -127,25 +153,30 @@
                       <input
                         type="password"
                         class="form-control form-control-user"
-                        id="exampleInputPassword"
+                        id="password"
+                        name="password"
                         placeholder="Password"
+                        required
                       />
                     </div>
                     <div class="col-sm-6">
                       <input
                         type="password"
                         class="form-control form-control-user"
-                        id="exampleConfirmPassword"
+                        id="password_confimation"
+                        name="password_confimation"
                         placeholder="Confirm Password"
+                        required
                       />
                     </div>
                   </div>
-                  <a
-                    href="login.html"
+                  <button
+                    href="dashboard.html"
                     class="btn btn-primary btn-user btn-block"
+                    type="submit"
                   >
                     Register Account
-                  </a>
+                  </button>
                   <hr />
                   <a
                     href="index.html"
