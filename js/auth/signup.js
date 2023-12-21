@@ -18,7 +18,7 @@ form_signup.onsubmit = async (e) => {
 
   const formData = new FormData(form_signup);
 
-  const response = await fetch(backendUrl + "/api/profile", {
+  const response = await fetch(backendUrl + "/api/register", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -31,11 +31,11 @@ form_signup.onsubmit = async (e) => {
 
     form_signup.reset();
 
-    successNotification("Successfully Registered Account.", 5);
+    successNotification("Successfully Registered Account.", 3);
   } else if (response.status == 422) {
     const json = await response.json();
 
-    alert(json.message, 5);
+    errorNotification(json.message, 3);
   }
 
   document.querySelector("#form_signup button").disabled = false;

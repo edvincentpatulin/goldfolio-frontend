@@ -1,6 +1,6 @@
 //Backend URL
 const backendUrl =
-  "https://0449-124-105-102-243.ngrok-free.app/goldfolio-backend/public";
+  "https://404a-124-105-102-243.ngrok-free.app/goldfolio-backend/public";
 
 //Notifications
 function successNotification(message, seconds) {

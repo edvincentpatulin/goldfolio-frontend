@@ -52,13 +52,13 @@ form_login.onsubmit = async (e) => {
 
     form_login.reset();
 
-    successNotification("Successfully login Account.", 5);
+    successNotification("Successfully login Account.", 3);
 
     window.location.pathname = "/dashboard.html";
   } else if (response.status == 422) {
     const json = await response.json();
 
-    alert(json.message, 5);
+    errorNotification(json.message, 3);
   }
 
   document.querySelector("#form_login button").disabled = false;
