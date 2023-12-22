@@ -56,6 +56,11 @@ create_article.onsubmit = async (e) => {
 
     create_article.reset();
 
+    document.querySelector("#create_article #button_article").disabled = false;
+    document.querySelector(
+      "#create_article #button_article"
+    ).innerHTML = `Submit`;
+
     // showToast("Successfully Created Article.", 3, "bg-success"); // Green color toast
     successNotification("Successfully Created Article.", 3);
   } else if (response.status == 422) {
@@ -63,10 +68,10 @@ create_article.onsubmit = async (e) => {
     console.error(json);
     errorNotification(json.message, 3);
     // showToast(json.message, 3, "bg-danger"); // Red color toast
-  }
 
-  document.querySelector("#create_article #button_article").disabled = false;
-  document.querySelector(
-    "#create_article #button_article"
-  ).innerHTML = `Submit`;
+    document.querySelector("#create_article #button_article").disabled = false;
+    document.querySelector(
+      "#create_article #button_article"
+    ).innerHTML = `Submit`;
+  }
 };

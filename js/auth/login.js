@@ -22,7 +22,7 @@ form_login.onsubmit = async (e) => {
   e.preventDefault();
 
   if (!selectedRole) {
-    alert("Please select a role");
+    errorNotification("Please select a role", 3);
     return;
   }
 

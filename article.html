@@ -27,7 +27,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-    <script src="js/auth/article.js" type="module"></script>
+    <script src="js/dashboard/article.js" type="module"></script>
   </head>
 
   <body id="page-top">
@@ -224,18 +224,8 @@
           <div class="container" >
             <form id="create_article">
             <!-- <p class="text-center title1 mt-3">Create Article</p> -->
-            <div aria-live="polite" aria-atomic="true" class="bg-body-secondary top-0 end-0 bd-example-toasts rounded-3 d-none">
-              <div class="toast-container p-3" id="toastPlacement">
-                <div class="toast">
-                  <div class="toast-header">
-                    <!-- <img src="..." class="rounded me-2" alt="..."> -->
-                    <strong class="me-auto">Notifications</strong>
-                  </div>
-                  <div class="toast-body">
-                  </div>
-                </div>
-              </div>
-            </div> 
+            <div class="alert alert-success d-none" role="alert"></div>
+                  <div class="alert alert-danger d-none" role="alert"></div>
             <div class="container custom-border mb-4">
               
               <div class="form-row mb-3">
@@ -324,33 +314,9 @@
                   </div>
 
                   <div class="container custom-border mb-3">
-                  <label class="form-label">Upload Your File</label>
-                  <div class="image-upload">
-                    <label style="cursor: pointer" for="file_upload">
-                      <img src="" alt="" class="uploaded-image" />
-
-                      <div class="h-25">
-                        <div class="dplay-tbl">
-                          <div class="dplay-tbl-cell">
-                            <i class="fa fa-upload mb-3"></i>
-                            <h5><b>Choose Your Image to Upload</b></h5>
-                            <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                          </div>
-                        </div>
-                      </div>
-                      
+                  <label for="formFile" class="form-label">Upload Your File</label>
                       <!--upload-content-->
-                      <input
-                        data-required="image"
-                        type="file"
-                        name="file"
-                        id="file"
-                        class="image-input"
-                        data-traget-resolution="image_resolution"
-                        value=""
-                      />
-                    </label>
-                  </div>
+                      <input class="form-control mb-3" type="file" id="file" name="file">
                   </div>
 
                   <div class="form-group ">

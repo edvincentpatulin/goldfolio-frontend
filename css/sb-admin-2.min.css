@@ -186,8 +186,24 @@ h6 {
   color: #aa8130;
   text-decoration: none;
 }
+
+.action-btn {
+  background-color: #aa8130 !important;
+  color: #aa8130;
+}
 .myButton:hover {
   background-color: #232323 !important;
+}
+
+/* Custom styles for active and inactive tabs */
+.mytab.active {
+  background-color: #232323;
+  color: #ffffff; /* Text color for active tab */
+}
+
+.mytab:not(.active) {
+  background-color: #aa8130;
+  color: #ffffff; /* Text color for inactive tabs */
 }
 
 .form-label {
