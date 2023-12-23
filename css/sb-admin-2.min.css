@@ -206,6 +206,10 @@ h6 {
   color: #ffffff; /* Text color for inactive tabs */
 }
 
+.bg-profile {
+  background-color: #ebecf0 !important;
+}
+
 .form-label {
   font-size: 18px;
   font-weight: 400;

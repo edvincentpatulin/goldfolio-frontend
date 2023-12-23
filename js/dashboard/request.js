@@ -4,91 +4,71 @@ import {
   errorNotification,
 } from "../utils/utils.js";
 
-// Function to get the user's authentication token (implement according to your authentication mechanism)
-// function getUserAuthToken() {
-//   // Replace this with your actual implementation
-//   return localStorage.getItem("token"); // Example assuming the token is stored in local storage
-// }
+//   async function getCoverRequests() {
+//     try {
+//       const response = await fetch(backendUrl + "/api/cover", {
+//         headers: {
+//           Accept: "application/json",
+//         },
+//       });
 
-// async function getArticle() {
-//   const authToken = getUserAuthToken();
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! status: ${response.status}`);
+//       }
 
-//   if (!authToken) {
-//     // Handle the case where the user is not authenticated
-//     console.error("User not authenticated");
-//     return;
-//   }
+//       const json = await response.json();
 
-//   const response = await fetch(backendUrl + "/api/article", {
-//     method: "GET",
-//     headers: {
-//       Accept: "application/json",
-//       Authorization: `Bearer ${authToken}`, // Include the user's token in the request headers
-//     },
-//   });
+//       let tbody = json.map((request) => `
+//         <tr class="border-table">
+//           <td>${request.cover_request_id}</td>
+//           <td>${request.title}</td>
+//           <td>${request.created_at}</td>
+//           <td>${request.status}</td>
+//         </tr>
+//       `).join('');
 
-//   if (response.ok) {
-//     const json = await response.json();
-
-//     if (json.length > 0) {
-//       const article = json[0]; // Assuming you want the first article, adjust as needed
-
-//       // Update title
-//       document.querySelector('#user-form-modal [name="title"]').innerText =
-//         article.title;
-
-//       // Update content
-//       document.querySelector('#user-form-modal [name="content"]').innerText =
-//         article.content;
-
-//       // Update file
-//       const fileField = document.querySelector(
-//         '#user-form-modal [name="file"]'
-//       );
-//       fileField.innerHTML = `<img src="${article.file}" alt="">`;
-
-//       // Display the modal
-//       $("#user-form-modal").modal("show");
+//       document.querySelector("#get_request tbody").innerHTML = tbody;
+//     } catch (error) {
+//       console.error('An error occurred while fetching the cover requests:', error);
 //     }
-//   } else {
-//     // Handle the case where the request was not successful
-//     console.error("Failed to fetch article:", response.statusText);
 //   }
-// }
 
-// backendUrl + "/api/cover"
-async function getCoverRequests() {
-  const response = await fetch(backendUrl + "/api/cover", {
+//   function reviewRequest(coverRequestId) {
+//     console.log(`Reviewing request with ID ${coverRequestId}`);
+//   }
+
+//   document.addEventListener("DOMContentLoaded", getCoverRequests);
+
+//Logout
+btn_logout.onclick = async () => {
+  const response = await fetch(backendUrl + "/api/logout", {
     headers: {
       Accept: "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
     },
   });
 
   if (response.ok) {
-    const json = await response.json();
+    // If the status is 204, there's no need to parse the response
+    if (response.status !== 204) {
+      try {
+        const json = await response.json();
+      } catch (error) {
+        console.error("Error parsing response:", error);
+      }
+    }
 
-    let tbody = "";
-    json.forEach((request) => {
-      tbody += `
-          <tr class="border-table">
-            <td>${request.cover_request_id}</td>
-            <td>${request.title}</td>
-            <td>${request.created_at}</td>
-            <td>${request.status}</td>
-            
-          </tr>
-        `;
-    });
+    // Clear the token from local storage
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
 
-    document.querySelector("#get_request tbody").innerHTML = tbody;
+    // successNotification("Logout Successful.");
+
+    // Redirect to the login page
+    window.location.pathname = "/login.html";
+  } else {
+    // If the status is not ok, handle the error
+    const text = await response.text();
+    // errorNotification(json.message, 3);
   }
-}
-
-// Function to handle reviewing a request
-function reviewRequest(coverRequestId) {
-  // Add your logic to handle reviewing a request based on the coverRequestId
-  console.log(`Reviewing request with ID ${coverRequestId}`);
-}
-
-// Fetch cover requests when the page loads
-document.addEventListener("DOMContentLoaded", getCoverRequests);
+};

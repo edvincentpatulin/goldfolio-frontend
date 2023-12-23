@@ -26,7 +26,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
     <script src="js/dashboard/management.js"  type="module"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
   </head>
 
   <body id="page-top">
@@ -40,7 +40,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="editordashboard.html"
         >
           <div class="sidebar-brand-icon">
             <img
@@ -60,19 +60,17 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="editordashboard.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider" />
+        <!-- <hr class="sidebar-divider" /> -->
+       <!-- <div class="sidebar-heading">Author Works</div>
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Author Works</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
+ 
         <li class="nav-item">
           <a class="nav-link" href="article.html">
             <i class="fas fa-fw fa-newspaper"></i>
@@ -80,13 +78,13 @@
           >
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
+
         <li class="nav-item">
           <a class="nav-link" href="request.html">
             <i class="fas fa-fw fa-envelope"></i>
             <span>Cover Request</span></a
           >
-        </li>
+        </li> -->
         <!-- <div
             id="collapseUtilities"
             class="collapse"
@@ -161,6 +159,44 @@
             <span>Logout</span></a
           >
         </li> 
+         <!-- Logout Modal-->
+        <div
+          class="modal fade"
+          id="logoutModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button
+                  class="close"
+                  type="button"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Select "Logout" below if you are ready to end your current session.
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <a class="btn btn-danger" id="btn_logout">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
@@ -204,13 +240,13 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="user_logged"
+                    ></span
                   >
-                  <img
+                  <!-- <img
                     class="img-profile rounded-circle"
                     src="img/undraw_profile.svg"
-                  />
+                  /> -->
                 </a>
               </li>
             </ul>
@@ -220,7 +256,8 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            
+            <div class="alert alert-success d-none" role="alert"></div>
+            <div class="alert alert-danger d-none" role="alert"></div>
             <form class="form-inline mr-auto w-100 navbar-search mb-3">
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control text-black border-2 small"
@@ -244,10 +281,10 @@
               <div class="card-body">
                 <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link mytab active" id="nav-all-tab" data-toggle="tab" data-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All</button>
-                    <button class="nav-link mytab" id="nav-approved-tab" data-toggle="tab" data-target="#nav-approved" type="button" role="tab" aria-controls="nav-approved" aria-selected="false">Approved</button>
-                    <button class="nav-link mytab" id="nav-denied-tab" data-toggle="tab" data-target="#nav-denied" type="button" role="tab" aria-controls="nav-denied" aria-selected="false">Denied</button>
-                    <button class="nav-link mytab" id="nav-revision-tab" data-toggle="tab" data-target="#nav-revision" type="button" role="tab" aria-controls="nav-revision" aria-selected="false">Revision</button>
+                    <button class="nav-link mytab active mr-1" id="nav-all-tab" data-toggle="tab" data-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All</button>
+                    <button class="nav-link mytab mr-1" id="nav-approved-tab" data-toggle="tab" data-target="#nav-approved" type="button" role="tab" aria-controls="nav-approved" aria-selected="false">Approved</button>
+                    <button class="nav-link mytab mr-1" id="nav-denied-tab" data-toggle="tab" data-target="#nav-denied" type="button" role="tab" aria-controls="nav-denied" aria-selected="false">Denied</button>
+                    <button class="nav-link mytab mr-1" id="nav-revision-tab" data-toggle="tab" data-target="#nav-revision" type="button" role="tab" aria-controls="nav-revision" aria-selected="false">Revision</button>
                   </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -271,7 +308,7 @@
                             <td>Hello World.</td>
                             <td>2011/04/25</td>
                             <td>Pending</td>
-                            <td><button class="myButton rounded-pill" data-toggle="modal" data-target="#request-form-modal">View Details</button></td>
+                            <td><button class="myButton rounded-pill" data-toggle="modal" data-target="#management-form-modal">View Details</button></td>
                           </tr>
                           <tr data-status="approved">
                             <td>2</td>
@@ -279,7 +316,7 @@
                             <td>Hello Worlddddd.</td>
                             <td>2023/12/25</td>
                             <td>Approved</td>
-                            <td><button class="myButton rounded-pill" data-toggle="modal" data-target="#request-form-modal">View Details</button></td>
+                            <td><button class="myButton rounded-pill" data-toggle="modal" data-target="#request-form-modal-done">View Details</button></td>
                           </tr>
                           <!-- Add more rows with appropriate data-status values -->
                         </tbody>
@@ -296,7 +333,7 @@
               </div>
         </div>
 
-        <div class="modal fade mt-5" role="dialog" tabindex="-1" id="request-form-modal">
+        <div class="modal fade mt-5" role="dialog" tabindex="-1" id="management-form-modal">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header table-style">
@@ -378,9 +415,8 @@
             </div>
           </div>
         </div>
-    
-            
-           
+
+        
                         
           <!-- /.container-fluid -->
         </div>
@@ -398,6 +434,77 @@
 
       <!-- End of Content Wrapper -->
     </div>
+    <div class="modal fade mt-5" role="dialog" tabindex="-1" id="request-form-modal-done">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header table-style">
+            <h4 class="modal-title m-0 font-weight-bold text-light">Article Created</h4>
+            <div class="float-right">
+              
+              <button type="button" class="close text-light" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="modal-body table-text">
+            <div class="py-1">
+              <form class="form" novalidate="">
+                <div class="row">
+                  <div class="col">
+                    <!-- Review Created Article -->
+                    <div class="row mb-3">
+                      <div class="col-sm-3">
+                        <label for="">Name:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <fieldset class="form-control" name="firstname" required></fieldset>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-sm-3">
+                        <label for="">Title:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <fieldset class="form-control" name="title" required></fieldset>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-sm-3">
+                        <label for="">Content:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <fieldset class="form-control" name="content" required></fieldset>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-sm-3">
+                        <label for="">File:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <fieldset class="form-control" name="file" required><img src="" alt=""></fieldset>
+                      </div>
+                    </div>
+                    <hr class="solid">
+                    <div class="row mb-3">
+                      <div class="col-sm-3">
+                        <label for="">Comment:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <fieldset class="form-control" name="comment" required></fieldset>
+                      </div>
+                    </div>
+                    <!-- <button type="submit" class="btn action-btn text-light float-right">Submit</button> -->
+                    
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -405,44 +512,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <a class="btn btn-danger" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
     <!-- Bootstrap core JavaScript-->
     <script src="js/style/jquery.min.js"></script>
