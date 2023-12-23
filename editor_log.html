@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>GoldFolio - Dashboard</title>
+    <title>GoldFolio - Editor Logs</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -25,11 +25,13 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <script type="module" src="js/auth/login.js"></script>
+    <script src="js/dashboard/dashboardlogout.js"  type="module"></script>
   </head>
 
   <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" >
       <!-- Sidebar -->
       <ul
         class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -38,7 +40,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="editordashboard.html"
         >
           <div class="sidebar-brand-icon">
             <img
@@ -58,33 +60,12 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="editordashboard.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Author Works</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="article.html">
-            <i class="fas fa-fw fa-newspaper"></i>
-            <span>Create Article</span></a
-          >
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="request.html">
-            <i class="fas fa-fw fa-envelope"></i>
-            <span>Cover Request</span></a
-          >
-        </li>
           <!-- <div
             id="collapseUtilities"
             class="collapse"
@@ -119,7 +100,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="publish.html">
             <i class="fas fa-fw fa-scroll"></i>
             <span>Publication</span></a
           >
@@ -133,14 +114,14 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="profile.html">
+          <a class="nav-link" href="editorprofile.html">
             <i class="fas fa-fw fa-user"></i>
             <span>Profile</span></a
           >
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="user-log.html">
+        <li class="nav-item active">
+          <a class="nav-link" href="editor_log.html">
             <i class="fas fa-fw fa-list"></i>
             <span>Activity Log</span></a
           >
@@ -157,7 +138,7 @@
             data-target="#logoutModal"
           >
             <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Logout</span></a
+            <span id="btn_logout">Logout</span></a
           >
         </li> 
 
@@ -182,7 +163,7 @@
               <i class="fa fa-bars"></i>
             </button>
 
-            <h1 id="header" class="h3 mb-0 text-white">Dashboard</h1>
+            <h1 id="header" class="h3 mb-0 text-white">Editor Logs</h1>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -199,13 +180,13 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="user_logged"
+                    ></span
                   >
-                  <img
+                  <!-- <img
                     class="img-profile rounded-circle"
                     src="img/undraw_profile.svg"
-                  />
+                  /> -->
                 </a>
               </li>
             </ul>
@@ -215,20 +196,23 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Article</h1>
+            <div class="alert alert-success d-none" role="alert"></div>
+            <div class="alert alert-danger d-none" role="alert"></div>
+            <h1 class="h3 mb-4 text-white"></h1>
+            
           </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
+        <!-- <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
               <span>Copyright &copy; Your Website 2020</span>
             </div>
           </div>
-        </footer>
+        </footer> -->
         <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
@@ -240,7 +224,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+    <!-- Logout Modal
     <div
       class="modal fade"
       id="logoutModal"
@@ -277,7 +261,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="js/style/jquery.min.js"></script>
@@ -288,5 +272,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/style/sb-admin-2.min.js"></script>
+    
   </body>
 </html>
