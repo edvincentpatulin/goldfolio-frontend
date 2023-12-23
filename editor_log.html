@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>GoldFolio - Author Dashboard</title>
+    <title>GoldFolio - Editor Logs</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -26,12 +26,12 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
     <script type="module" src="js/auth/login.js"></script>
-    <script src="js/dashboard/dashboardlogout.js" type="module"></script>
+    <script src="js/dashboard/dashboardlogout.js"  type="module"></script>
   </head>
 
   <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" >
       <!-- Sidebar -->
       <ul
         class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -40,7 +40,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="authordashboard.html"
+          href="editordashboard.html"
         >
           <div class="sidebar-brand-icon">
             <img
@@ -59,35 +59,14 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-          <a class="nav-link" href="authordashboard.html">
+        <li class="nav-item">
+          <a class="nav-link" href="editordashboard.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Author Works</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="article.html">
-            <i class="fas fa-fw fa-newspaper"></i>
-            <span>Create Article</span></a
-          >
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="request.html">
-            <i class="fas fa-fw fa-envelope"></i>
-            <span>Cover Request</span></a
-          >
-        </li>
-        <!-- <div
+          <!-- <div
             id="collapseUtilities"
             class="collapse"
             aria-labelledby="headingUtilities"
@@ -103,6 +82,29 @@
               <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
           </div> -->
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Management</div>
+
+        <!-- Nav Item - Management -->
+        <li class="nav-item">
+          <a class="nav-link" href="management.html">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Review Request</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+          <a class="nav-link" href="publish.html">
+            <i class="fas fa-fw fa-scroll"></i>
+            <span>Publication</span></a
+          >
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
@@ -112,14 +114,14 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="authorprofile.html">
+          <a class="nav-link" href="editorprofile.html">
             <i class="fas fa-fw fa-user"></i>
             <span>Profile</span></a
           >
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="author_log.html">
+        <li class="nav-item active">
+          <a class="nav-link" href="editor_log.html">
             <i class="fas fa-fw fa-list"></i>
             <span>Activity Log</span></a
           >
@@ -138,7 +140,7 @@
             <i class="fas fa-fw fa-sign-out-alt"></i>
             <span id="btn_logout">Logout</span></a
           >
-        </li>
+        </li> 
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
@@ -161,7 +163,7 @@
               <i class="fa fa-bars"></i>
             </button>
 
-            <h1 id="header" class="h3 mb-0 text-white">Dashboard</h1>
+            <h1 id="header" class="h3 mb-0 text-white">Editor Logs</h1>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -178,10 +180,9 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <span
-                    class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    id="user_logged"
-                  ></span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="user_logged"
+                    ></span
+                  >
                   <!-- <img
                     class="img-profile rounded-circle"
                     src="img/undraw_profile.svg"
@@ -197,10 +198,22 @@
             <!-- Page Heading -->
             <div class="alert alert-success d-none" role="alert"></div>
             <div class="alert alert-danger d-none" role="alert"></div>
+            <h1 class="h3 mb-4 text-white"></h1>
+            
           </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <!-- <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer> -->
+        <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
     </div>
@@ -211,6 +224,45 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Logout Modal
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Select "Logout" below if you are ready to end your current session.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a class="btn btn-danger" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
     <!-- Bootstrap core JavaScript-->
     <script src="js/style/jquery.min.js"></script>
     <script src="js/style/bootstrap.bundle.min.js"></script>
@@ -220,5 +272,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/style/sb-admin-2.min.js"></script>
+    
   </body>
 </html>

@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>GoldFolio - Editor Dashboard</title>
+    <title>GoldFolio - Editor Profile</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -59,7 +59,7 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="editordashboard.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
@@ -113,8 +113,8 @@
         <div class="sidebar-heading">User</div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item">
-          <a class="nav-link" href="editorprofile.html">
+        <li class="nav-item active">
+          <a class="nav-link" href="editor_profile.html">
             <i class="fas fa-fw fa-user"></i>
             <span>Profile</span></a
           >
@@ -138,9 +138,47 @@
             data-target="#logoutModal"
           >
             <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span id="btn_logout">Logout</span></a
+            <span>Logout</span></a
           >
         </li> 
+        <!-- Logout Modal-->
+        <div
+          class="modal fade"
+          id="logoutModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button
+                  class="close"
+                  type="button"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Select "Logout" below if you are ready to end your current session.
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <a class="btn btn-danger" id="btn_logout">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
@@ -163,7 +201,7 @@
               <i class="fa fa-bars"></i>
             </button>
 
-            <h1 id="header" class="h3 mb-0 text-white">Dashboard</h1>
+            <h1 id="header" class="h3 mb-0 text-white">Profile</h1>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -196,9 +234,152 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <div class="alert alert-success d-none" role="alert"></div>
-            <div class="alert alert-danger d-none" role="alert"></div>
-            <h1 class="h3 mb-4 text-white"></h1>
+            <div class="card border-0 mb-3">
+                <h4
+                  class="card-header m-0 font-weight-bold text-dark bg-white shadow-sm"
+                >
+                  Editor Profile
+                </h4>
+                <div class="card-body bg-profile">
+                  <form class="information_form" novalidate="">
+                    <div class="row">
+                      <div class="col text-dark">
+                        <!-- Review Created Article -->
+                        <h5 class="m-0 font-weight-bold mb-1">
+                          Profile Information
+                        </h5>
+                        <h6>
+                          Update your profile information and email address.
+                        </h6>
+                        <!-- Existing fields here -->
+                      </div>
+                      <div class="col-7">
+                        <!-- New card -->
+                        <div class="card shadow-sm">
+                          <div class="card-body">
+                            <div class="mb-2">
+                              <label for="">First Name:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_firstname"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Last Name:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_lastname"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Email:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_email"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Student ID:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_student_id"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Year Level:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_year_level"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Course:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_course"
+                                required
+                              ></fieldset>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">Position:</label>
+                              <fieldset
+                                class="form-control"
+                                id="user_position"
+                                required
+                              ></fieldset>
+                            </div>
+                          </div>
+                          <div class="card-header text-right">
+                            <button type="submit" class="btn bg-dark text-light">
+                              Edit Profile
+                            </button>
+                          </div>
+                        </div>
+                        <!-- End of new card -->
+                      </div>
+                    </div>
+                  </form>
+                  <hr class="mt-4" />
+                  <form class="account_form" novalidate="">
+                    <div class="row">
+                      <div class="col text-dark">
+                        <!-- Review Created Article -->
+                        <h5 class="m-0 font-weight-bold mb-1">
+                          Profile Account Password
+                        </h5>
+                        <h6>
+                          Update your account's profile password and ensure your
+                          account is using a long, random password to stay secure.
+                        </h6>
+                        <!-- Existing fields here -->
+                      </div>
+                      <div class="col-7">
+                        <!-- New card -->
+                        <div class="card shadow-sm">
+                          <div class="card-body">
+                            <div class="mb-2">
+                              <label for="">Current Password:</label>
+                              <input
+                                class="form-control"
+                                type="password"
+                                name="password"
+                                required
+                              ></input>
+                            </div>
+  
+                            <div class="mb-2">
+                              <label for="">New Password:</label>
+                              <input
+                                class="form-control"
+                                type="password"
+                                name="password_confirmation"
+                                required
+                              ></input>
+                            </div>
+                          </div>
+                          <div class="card-header text-right">
+                            <button type="submit" class="btn bg-dark text-light">
+                              Save New Password
+                            </button>
+                          </div>
+                        </div>
+                        <!-- End of new card -->
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             
           </div>
           <!-- /.container-fluid -->
