@@ -4,7 +4,7 @@ setRouter();
 
 //Backend URL
 const backendUrl =
-  "https://08cf-124-105-102-243.ngrok-free.app/goldfolio-backend/public";
+  "https://7af3-61-245-13-115.ngrok-free.app/goldfolio-backend/public";
 
 //Access User Profile
 // getLoggedUser();

@@ -3,6 +3,7 @@ import {
   successNotification,
   errorNotification,
 } from "../utils/utils.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   //Form login
   const form_login = document.getElementById("form_login");
@@ -56,15 +57,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         successNotification("Successfully login Account.");
 
-        if (selectedRole === "Author") {
+        if (selectedRole === "author") {
           window.location.pathname = "/authordashboard.html";
-        } else if (selectedRole === "Editor") {
+        } else if (selectedRole === "editor") {
           window.location.pathname = "/editordashboard.html";
         }
       } else if (response.status == 422) {
         const json = await response.json();
 
-        errorNotification(json.message, 3);
+        if (json.message === "The provided credentials are incorrect.") {
+          if (selectedRole === "author") {
+            errorNotification("Credentials does not match as Author", 3);
+          } else if (selectedRole === "editor") {
+            errorNotification("Credentials does not match as Editor", 3);
+          }
+        } else {
+          errorNotification(json.message, 3);
+        }
       }
 
       document.querySelector("#form_login button").disabled = false;
