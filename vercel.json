@@ -10,8 +10,60 @@
       "dest": "/js/$1"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/landing.html",
+      "dest": "/landing.html"
+    },
+    {
+      "src": "/login.html",
+      "dest": "/login.html"
+    },
+    {
+      "src": "/signup.html",
+      "dest": "/signup.html"
+    },
+    {
+      "src": "/authordashboard.html",
+      "dest": "/authordashboard.html"
+    },
+    {
+      "src": "/editordashboard.html",
+      "dest": "/editordashboard.html"
+    },
+    {
+      "src": "/request.html",
+      "dest": "/request.html"
+    },
+    {
+      "src": "/article.html",
+      "dest": "/article.html"
+    },
+    {
+      "src": "/authorprofile.html",
+      "dest": "/authorprofile.html"
+    },
+    {
+      "src": "/author_log.html",
+      "dest": "/author_log.html"
+    },
+    {
+      "src": "/management.html",
+      "dest": "/management.html"
+    },
+    {
+      "src": "/publish.html",
+      "dest": "/publish.html"
+    },
+    {
+      "src": "/editor_log.html",
+      "dest": "/editor_log.html"
+    },
+    {
+      "src": "/editorprofile.html",
+      "dest": "/editorprofile.html"
     },
     {
       "src": "/(.*)",
