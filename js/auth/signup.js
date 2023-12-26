@@ -20,6 +20,7 @@ form_signup.onsubmit = async (e) => {
 
   const response = await fetch(backendUrl + "/api/register", {
     method: "POST",
+    mode: "no-cors", // Add this line
     headers: {
       Accept: "application/json",
     },

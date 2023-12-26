@@ -14,6 +14,10 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/vendor/(.*)",
+      "dest": "/vendor/$1"
+    },
+    {
       "src": "/landing.html",
       "dest": "/landing.html"
     },
